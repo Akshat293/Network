@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/backgroud_color"
+    tools:context=".ChatActivity">
+
+
+    <View
+        android:id="@+id/view_background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        app:layout_constraintBottom_toTopOf="@id/send_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/back_button"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_margin="@dimen/_16sdp"
+        android:background="@drawable/background_content"
+        android:paddingStart="@dimen/_8sdp"
+        android:src="@drawable/ic_back"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/text_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageProfile"
+        tools:ignore="RtlSymmetry" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/info_button"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_margin="@dimen/_16sdp"
+        android:background="@drawable/background_content"
+        android:src="@drawable/ic_info"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/text_name"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageProfile"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginRight="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/info_button"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toBottomOf="@id/imageProfile"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/availability"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toTopOf="@id/viewSupporter"
+        app:layout_constraintEnd_toEndOf="@id/text_name"
+        app:layout_constraintStart_toStartOf="@id/text_name"
+        app:layout_constraintTop_toBottomOf="@id/text_name"
+        tools:text="Online" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/profile_pic_icon"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@id/info_button"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="@dimen/_50sdp" />
+
+
+    <View
+        android:id="@+id/viewSupporter"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_24sdp"
+        app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:flow_wrapMode="aligned"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:padding="@dimen/_8sdp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="@id/view_background"
+        app:layout_constraintTop_toBottomOf="@id/viewSupporter"
+        app:stackFromEnd="true" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="@id/view_background"
+        app:layout_constraintEnd_toEndOf="@id/view_background"
+        app:layout_constraintStart_toStartOf="@id/view_background"
+        app:layout_constraintTop_toTopOf="@id/view_background" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/send_button"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@drawable/circle"
+        app:icon="@drawable/ic_round_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/message_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8ssp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@drawable/message_input"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/send_button"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/emoji"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_round_emoji_emotions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/attach"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/attach"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/camera"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/ic_photo_camera_black_48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/attach"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/light_grey" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/camera"
+            app:layout_constraintStart_toEndOf="@id/emoji"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.example.network.components.MyEditText
+                android:id="@+id/inputText"
+                android:linksClickable="true"
+                android:autoLink="web|map|email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="@string/message"
+                android:maxLines="4"
+                android:textColor="?colorPrimary"
+                android:textColorHint="@color/grey"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/_16ssp" />
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/attach_adder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8ssp"
+        android:background="@drawable/rectangle"
+        android:padding="@dimen/_10sdp"
+        android:visibility="gone"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/message_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/attacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/attach_image"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_margin="@dimen/_30sdp"
+                android:background="@drawable/image_attach"
+                android:backgroundTint="@color/image_attach_color"
+                android:padding="@dimen/_20sdp"
+                android:src="@drawable/ic_insert_photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_oval="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/gallery"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@id/attach_image"
+                app:layout_constraintStart_toStartOf="@id/attach_image"
+                app:layout_constraintTop_toBottomOf="@id/attach_image" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/attach_file"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_margin="@dimen/_30sdp"
+                android:background="@drawable/image_attach"
+                android:backgroundTint="@color/pdf_attach_color"
+                android:padding="@dimen/_20sdp"
+                android:src="@drawable/ic_round_file"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/attach_camera"
+                app:layout_constraintStart_toEndOf="@id/attach_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_oval="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/document"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@id/attach_file"
+                app:layout_constraintStart_toStartOf="@id/attach_file"
+                app:layout_constraintTop_toBottomOf="@id/attach_file" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/attach_camera"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_margin="@dimen/_30sdp"
+                android:background="@drawable/image_attach"
+                android:backgroundTint="@color/camera_attach_color"
+                android:padding="@dimen/_20sdp"
+                android:src="@drawable/ic_photo_camera_black_48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius="@dimen/_30sdp"
+                app:riv_oval="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/camera"
+                android:textColor="@color/light_grey"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@id/attach_camera"
+                app:layout_constraintStart_toStartOf="@id/attach_camera"
+                app:layout_constraintTop_toBottomOf="@id/attach_camera" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
